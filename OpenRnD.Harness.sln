@@ -13,13 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRnD.Harness.IISExpress.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRnD.Harness.IISExpress.Tests.Target", "test\OpenRnD.Harness.IISExpress.Tests.Target\OpenRnD.Harness.IISExpress.Tests.Target.csproj", "{0DAF2CE0-AC58-4284-AC7A-FAC2547DCFCD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{D4EDF961-E0B3-4DAD-89B5-FB743FC23C4E}"
-	ProjectSection(SolutionItems) = preProject
-		Build.proj = Build.proj
-		.build\MSBuild.Community.Tasks.dll = .build\MSBuild.Community.Tasks.dll
-		.build\MSBuild.Community.Tasks.targets = .build\MSBuild.Community.Tasks.targets
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
