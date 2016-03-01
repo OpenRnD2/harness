@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRnD.Harness.IISExpress.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRnD.Harness.IISExpress.Tests.Target", "test\OpenRnD.Harness.IISExpress.Tests.Target\OpenRnD.Harness.IISExpress.Tests.Target.csproj", "{0DAF2CE0-AC58-4284-AC7A-FAC2547DCFCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRnD.Harness.DotNetCore", "src\OpenRnD.Harness.DotNetCore\OpenRnD.Harness.DotNetCore.csproj", "{F3AE43DF-AF02-4326-B6DD-B69FAD93FB58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{0DAF2CE0-AC58-4284-AC7A-FAC2547DCFCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DAF2CE0-AC58-4284-AC7A-FAC2547DCFCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DAF2CE0-AC58-4284-AC7A-FAC2547DCFCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3AE43DF-AF02-4326-B6DD-B69FAD93FB58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3AE43DF-AF02-4326-B6DD-B69FAD93FB58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3AE43DF-AF02-4326-B6DD-B69FAD93FB58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3AE43DF-AF02-4326-B6DD-B69FAD93FB58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +45,6 @@ Global
 		{CA184797-A614-43EC-A895-133B358BF836} = {E81E3213-C0EF-4B13-9812-2864EE6DFA65}
 		{A7A7C07E-B5C6-4D38-8ACA-243510A1C699} = {A67EE217-A7B1-438A-AB9B-69D3D32BE5A3}
 		{0DAF2CE0-AC58-4284-AC7A-FAC2547DCFCD} = {A67EE217-A7B1-438A-AB9B-69D3D32BE5A3}
+		{F3AE43DF-AF02-4326-B6DD-B69FAD93FB58} = {E81E3213-C0EF-4B13-9812-2864EE6DFA65}
 	EndGlobalSection
 EndGlobal
