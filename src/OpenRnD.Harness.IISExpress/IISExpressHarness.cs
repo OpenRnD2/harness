@@ -20,7 +20,9 @@ namespace OpenRnD.Harness.IISExpress
 
         public IISExpressHarness(string projectPath, int serverPort)
         {
-            if (!File.Exists(Path.Combine(projectPath, "Web.config")))
+            string fullName = new DirectoryInfo(Path.Combine(projectPath, "Web.config")).FullName;
+
+            if (!File.Exists(fullName))
             {
                 throw new Exception($"No Web.config file found in the project path directory ({projectPath}).");
             }
