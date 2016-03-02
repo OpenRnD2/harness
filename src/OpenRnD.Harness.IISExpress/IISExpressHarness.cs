@@ -24,7 +24,7 @@ namespace OpenRnD.Harness.IISExpress
 
             if (!File.Exists(fullName))
             {
-                throw new Exception($"No Web.config file found in the project path directory ({projectPath}).");
+                throw new Exception($"No Web.config file found in the project path directory ({fullName}).");
             }
 
             if (serverPort < 1 || serverPort > ushort.MaxValue)
