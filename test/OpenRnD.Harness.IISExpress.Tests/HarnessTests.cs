@@ -16,7 +16,7 @@ namespace OpenRnD.Harness.IISExpress.Tests
             using (IISExpressHarness harness = new IISExpressHarness("../../../OpenRnD.Harness.IISExpress.Tests.Target", serverPort))
             {
                 HttpClient client = new HttpClient();
-                HttpResponseMessage response = await client.GetAsync($"http://localhost:{serverPort}/Target.txt");
+                HttpResponseMessage response = await client.GetAsync($"http://localhost:{serverPort}/Target");
                 string text = await response.Content.ReadAsStringAsync();
 
                 Assert.AreEqual(expected: "Target", actual: text);
@@ -28,7 +28,7 @@ namespace OpenRnD.Harness.IISExpress.Tests
         {
             int serverPort = 5555;
 
-            using (IISExpressHarness harness = new IISExpressHarness("../../../OpenRnD.Harness.IISExpress.Tests.Targets.DotNetCore", serverPort))
+            using (IISExpressHarness harness = new IISExpressHarness("../../../OpenRnD.Harness.IISExpress.Tests.Targets.DotNetCore/wwwroot", serverPort))
             {
                 HttpClient client = new HttpClient();
                 HttpResponseMessage response = await client.GetAsync($"http://localhost:{serverPort}/Target.txt");
