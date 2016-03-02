@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("OpenRnD.Harness.SQLServer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Test harness for SQL Server")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("OpenRnD")]
 [assembly: AssemblyProduct("OpenRnD.Harness.SQLServer")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]

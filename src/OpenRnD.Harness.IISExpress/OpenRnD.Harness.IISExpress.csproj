@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="OpenRnD.Harness.IISExpress.nuspec" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -55,8 +54,6 @@
   </Target>
   -->
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
-    <!-- Only download a new copy of nuget.exe if we don't have a copy available -->
-    <Exec Command="nuget pack OpenRnD.Harness.IISExpress.csproj -Prop Configuration=Release">
-    </Exec>
+    <Exec Command="nuget pack $(MSBuildProjectFile) -Prop Configuration=Release"></Exec>
   </Target>
 </Project>

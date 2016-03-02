@@ -10,8 +10,7 @@
     <projectUrl>https://github.com/OpenRnD2/harness</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Created the nuget package</releaseNotes>
     <copyright>Copyright 2016</copyright>
-    <tags>Harness IISExpress OpenRnD</tags>
+    <tags>OpenRnD Harness IIS Express Integration Test</tags>
   </metadata>
 </package>
