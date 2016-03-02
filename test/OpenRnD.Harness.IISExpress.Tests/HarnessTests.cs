@@ -9,11 +9,26 @@ namespace OpenRnD.Harness.IISExpress.Tests
     public class HarnessTests
     {
         [TestMethod]
-        public async Task CanAcquireTarget()
+        public async Task CanAcquire_AspNet()
         {
             int serverPort = 5555;
 
             using (IISExpressHarness harness = new IISExpressHarness("../../../OpenRnD.Harness.IISExpress.Tests.Target", serverPort))
+            {
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync($"http://localhost:{serverPort}/Target.txt");
+                string text = await response.Content.ReadAsStringAsync();
+
+                Assert.AreEqual(expected: "Target", actual: text);
+            }
+        }
+
+        [TestMethod]
+        public async Task CanAcquire_AspNetCore()
+        {
+            int serverPort = 5555;
+
+            using (IISExpressHarness harness = new IISExpressHarness("../../../OpenRnD.Harness.IISExpress.Tests.Targets.DotNetCore", serverPort))
             {
                 HttpClient client = new HttpClient();
                 HttpResponseMessage response = await client.GetAsync($"http://localhost:{serverPort}/Target.txt");
