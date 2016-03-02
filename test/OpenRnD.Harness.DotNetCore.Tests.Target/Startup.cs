@@ -7,7 +7,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace OpenRnD.Harness.IISExpress.Tests.Targets.DotNetCore
+namespace OpenRnD.Harness.DotNetCore.Tests.Target
 {
     public class Startup
     {
