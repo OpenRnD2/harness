@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("OpenRnD.Harness.DotNetCore")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Test harness for .NET Core")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("OpenRnD")]
 [assembly: AssemblyProduct("OpenRnD.Harness.DotNetCore")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
