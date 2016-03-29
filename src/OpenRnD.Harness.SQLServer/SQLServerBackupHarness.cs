@@ -23,7 +23,11 @@ namespace OpenRnD.Harness.SQLServer
         }
 
         private void CreateBackup()
-        {            
+        {
+            string directoryPath = Path.GetDirectoryName(BackupPath);
+
+            Directory.CreateDirectory(directoryPath);
+             
             if (File.Exists(BackupPath))
             {
                 RestoreBackup();
