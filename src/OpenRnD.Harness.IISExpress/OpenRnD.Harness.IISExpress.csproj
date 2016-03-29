@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IISExpressHarness.cs" />
+    <Compile Include="ProcessTerminator.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="PIDUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -54,6 +56,7 @@
   </Target>
   -->
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
-    <Exec Command="nuget pack $(MSBuildProjectFile) -Prop Configuration=Release"></Exec>
+    <Exec Command="nuget pack $(MSBuildProjectFile) -Prop Configuration=Release">
+    </Exec>
   </Target>
 </Project>
