@@ -17,9 +17,9 @@ namespace OpenRnD.Harness.IISExpress
         public int ServerPort { get; }
         public Process ServerProcess { get; }
         public IISExpressBitness Bitness { get; }
+        public bool ShowWindow { get; }
 
-
-        public IISExpressHarness(string projectPath, int serverPort, IISExpressBitness bitness = IISExpressBitness.x86)
+        public IISExpressHarness(string projectPath, int serverPort, IISExpressBitness bitness = IISExpressBitness.x86, bool showWindow = false)
         {
             string fullName = new DirectoryInfo(Path.Combine(projectPath, "Web.config")).FullName;
 
@@ -36,6 +36,7 @@ namespace OpenRnD.Harness.IISExpress
             ProjectPath = projectPath;
             ServerPort = serverPort;
             Bitness = bitness;
+            ShowWindow = showWindow;
 
             PIDUtilities.KillByPID("pid.txt", "iisexpress");
             ProcessStartInfo startInfo = CreateServerStartInfo();
@@ -57,8 +58,15 @@ namespace OpenRnD.Harness.IISExpress
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
                 FileName = iisExpressPath,
-                Arguments = iisExpressArguments
+                Arguments = iisExpressArguments,
             };
+
+            if (!ShowWindow)
+            {
+                startInfo.UseShellExecute = false;
+                startInfo.CreateNoWindow = true;
+                startInfo.RedirectStandardOutput = true;
+            }
 
             return startInfo;
         }
