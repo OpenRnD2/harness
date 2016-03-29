@@ -28,7 +28,7 @@ namespace OpenRnD.Harness.IISExpress.Tests
         {
             int serverPort = 5555;
 
-            using (IISExpressHarness harness = new IISExpressHarness("../../../OpenRnD.Harness.IISExpress.Tests.Target", serverPort, IISExpressBitness.x64))
+            using (IISExpressHarness harness = new IISExpressHarness("../../../OpenRnD.Harness.IISExpress.Tests.Target", serverPort, IISExpressBitness.x86))
             {
                 HttpClient client = new HttpClient();
                 HttpResponseMessage response = await client.GetAsync($"http://localhost:{serverPort}/Target");
