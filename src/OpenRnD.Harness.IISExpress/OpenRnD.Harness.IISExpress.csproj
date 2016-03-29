@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSProjUtilities.cs" />
     <Compile Include="IISExpressBitness.cs" />
     <Compile Include="IISExpressHarness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
