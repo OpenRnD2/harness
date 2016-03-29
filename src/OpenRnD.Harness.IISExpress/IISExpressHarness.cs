@@ -16,9 +16,10 @@ namespace OpenRnD.Harness.IISExpress
 
         public int ServerPort { get; }
         public Process ServerProcess { get; }
+        public IISExpressBitness Bitness { get; }
 
 
-        public IISExpressHarness(string projectPath, int serverPort)
+        public IISExpressHarness(string projectPath, int serverPort, IISExpressBitness bitness = IISExpressBitness.x86)
         {
             string fullName = new DirectoryInfo(Path.Combine(projectPath, "Web.config")).FullName;
 
@@ -34,6 +35,7 @@ namespace OpenRnD.Harness.IISExpress
 
             ProjectPath = projectPath;
             ServerPort = serverPort;
+            Bitness = bitness;
 
             PIDUtilities.KillByPID("pid.txt", "iisexpress");
             ProcessStartInfo startInfo = CreateServerStartInfo();
@@ -43,7 +45,7 @@ namespace OpenRnD.Harness.IISExpress
 
         private ProcessStartInfo CreateServerStartInfo()
         {
-            string iisExpressPath = GetIISExpressPath(IISExpressBitness.x86);
+            string iisExpressPath = GetIISExpressPath(Bitness);
             CheckForIISExpressPath(iisExpressPath);
 
             string testAssemblyLocationPath = Assembly.GetExecutingAssembly().Location;
@@ -81,22 +83,30 @@ namespace OpenRnD.Harness.IISExpress
 
         private string GetIISExpressPath(IISExpressBitness bitness)
         {
-            Environment.SpecialFolder folder;
+            string folder;
 
             if(bitness == IISExpressBitness.x86)
             {
-                folder = Environment.SpecialFolder.ProgramFilesX86;
+                folder = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
             }
             else if(bitness == IISExpressBitness.x64)
             {
-                folder = Environment.SpecialFolder.ProgramFiles;
+                if(!Environment.Is64BitProcess)
+                {
+                    // SpecialFolder.ProgramFiles would still point to the x86 folder in a 32-bit process
+                    folder = Environment.GetEnvironmentVariable("ProgramW6432");
+                }
+                else
+                {
+                    folder = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+                }
             }
             else
             {
                 throw new ArgumentException();
             }
 
-            string iisExpressPath = Path.Combine(Environment.GetFolderPath(folder), @"IIS Express\iisexpress.exe");
+            string iisExpressPath = Path.Combine(folder, @"IIS Express\iisexpress.exe");
 
             return iisExpressPath;
         }
