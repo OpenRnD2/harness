@@ -44,6 +44,7 @@ namespace OpenRnD.Harness.IISExpress
         private ProcessStartInfo CreateServerStartInfo()
         {
             string iisExpressPath = GetIISExpressPath(IISExpressBitness.x86);
+            CheckForIISExpressPath(iisExpressPath);
 
             string testAssemblyLocationPath = Assembly.GetExecutingAssembly().Location;
             string testAssemblyProjectPath = Path.GetDirectoryName(testAssemblyLocationPath);
@@ -58,6 +59,14 @@ namespace OpenRnD.Harness.IISExpress
             };
 
             return startInfo;
+        }
+
+        private void CheckForIISExpressPath(string iisExpressPath)
+        {
+            if(!File.Exists(iisExpressPath))
+            {
+                throw new IOException($"IIS Express path not found ({iisExpressPath}).");
+            }
         }
 
         private Process StartServer(ProcessStartInfo startInfo)
