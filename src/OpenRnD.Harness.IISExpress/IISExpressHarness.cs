@@ -43,7 +43,7 @@ namespace OpenRnD.Harness.IISExpress
 
         private ProcessStartInfo CreateServerStartInfo()
         {
-            string iisExpressPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\IIS Express\iisexpress.exe";
+            string iisExpressPath = GetIISExpressPath(IISExpressBitness.x86);
 
             string testAssemblyLocationPath = Assembly.GetExecutingAssembly().Location;
             string testAssemblyProjectPath = Path.GetDirectoryName(testAssemblyLocationPath);
@@ -69,5 +69,29 @@ namespace OpenRnD.Harness.IISExpress
         {
             ProcessTerminator.Terminate(ServerProcess);
         }
+
+        private string GetIISExpressPath(IISExpressBitness bitness)
+        {
+            Environment.SpecialFolder folder;
+
+            if(bitness == IISExpressBitness.x86)
+            {
+                folder = Environment.SpecialFolder.ProgramFilesX86;
+            }
+            else if(bitness == IISExpressBitness.x64)
+            {
+                folder = Environment.SpecialFolder.ProgramFiles;
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
+
+            string iisExpressPath = Path.Combine(Environment.GetFolderPath(folder), @"IIS Express\iisexpress.exe");
+
+            return iisExpressPath;
+        }
+
+        const string iisExpressPath = @"IIS Express\IISExpress.exe";
     }
 }
