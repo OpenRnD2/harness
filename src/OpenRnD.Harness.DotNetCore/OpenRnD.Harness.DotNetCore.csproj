@@ -41,11 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DotNetCoreHarness.cs" />
-    <Compile Include="PIDUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="OpenRnD.Harness.DotNetCore.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenRnD.Harness.Core\OpenRnD.Harness.Core.csproj">
+      <Project>{1152dd5f-45ba-473a-8bb5-6b1699dce28a}</Project>
+      <Name>OpenRnD.Harness.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -54,6 +59,7 @@
   </Target>
   -->
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
-    <Exec Command="nuget pack $(MSBuildProjectFile) -Prop Configuration=Release"></Exec>
+    <Exec Command="nuget pack $(MSBuildProjectFile) -Prop Configuration=Release">
+    </Exec>
   </Target>
 </Project>

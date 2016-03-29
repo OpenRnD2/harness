@@ -70,11 +70,7 @@ namespace OpenRnD.Harness.DotNetCore
         
         public void Dispose()
         {
-            if (ServerProcess.HasExited == false)
-            {
-                ServerProcess.Kill();
-                ServerProcess.WaitForExit();
-            }
+            ProcessTerminator.Terminate(ServerProcess);
         }
     }
 }

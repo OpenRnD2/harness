@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace OpenRnD.Harness.Core
 {
-    internal static class ProcessTerminator
+    public static class ProcessTerminator
     {
-        public static IntPtr FindMainWindow(int processId)
+        internal static IntPtr FindMainWindow(int processId)
         {
             IntPtr mainWindowHandle = IntPtr.Zero;
 
@@ -31,7 +31,7 @@ namespace OpenRnD.Harness.Core
             return mainWindowHandle;
         }
 
-        internal static void Terminate(Process process)
+        public static void Terminate(Process process)
         {
             // Try to abort the process in a civilized manner
             if (process.HasExited == false)

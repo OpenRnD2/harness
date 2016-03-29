@@ -23,7 +23,10 @@ namespace OpenRnD.Harness.Core
                 Process[] processes = Process.GetProcessesByName(processName);
                 Process matchingProcess = processes.SingleOrDefault(p => p.Id == pid);
 
-                matchingProcess?.Kill();
+                if(matchingProcess != null)
+                {
+                    ProcessTerminator.Terminate(matchingProcess);
+                }
             }
         }
     }
